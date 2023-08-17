@@ -194,9 +194,11 @@ A python3 script ptp.py is included.
 -   Docker Desktop 4.5.0 , Engine Version: 20.10.12 **See instructions here for Debian: https://docs.docker.com/desktop/install/debian/.**
 -   Docker Compose v2.3.3
 -   Zip
+-   Netcat
 
 ```sh
-apt-get install zip
+sudo apt-get install zip
+sudo apt-get install netcat
 ```
 
 Docker and docker-compose must be installed on the host system. Additionally, Zip must be installed in order to use the CLI backup utility.
@@ -213,7 +215,7 @@ Copy the zip archive of the Reporting Engine source code to the host machine and
 To run in production mode with TLS and without a proxy use the command:
 
 ```sh
-> python3 ptp.py run -r [RVA/RPT/HVA]
+> sudo python3 ptp.py run -r [RVA/RPT/HVA]
 ```
 
 To run in production mode with a proxy, make sure to specify a proxy configuration file as a parameter:
