@@ -194,11 +194,9 @@ A python3 script ptp.py is included.
 -   Docker Desktop 4.5.0 , Engine Version: 20.10.12 **See instructions here for Debian: https://docs.docker.com/desktop/install/debian/.**
 -   Docker Compose v2.3.3
 -   Zip
--   Netcat
 
 ```sh
 sudo apt-get install zip
-sudo apt-get install netcat
 ```
 
 Docker and docker-compose must be installed on the host system. Additionally, Zip must be installed in order to use the CLI backup utility.
