@@ -87,9 +87,9 @@ Internet connectivity is required to install Docker. The latest version of the D
 
 **Debian Instructions**
 
-**Recommend using Debian 10.13 - Using Full 3 Image set of ISO's.  You will need dependencies on all 3 disks.**
+**Recommend using Debian 10.13 - Using Full 3 Image set of ISO's.  You will need dependencies on all 3 ISO images.**
 
-** You will need to edit your sources and add [trusted=yes] after the deb keyword for the installation media you use during install (all 3 ISO disks).**
+** You will need to edit your sources and add [trusted=yes] after the deb keyword for the installation media you use during install (all 3 ISO images).**
 
 ```sh
 > sudo apt-get update
@@ -97,7 +97,7 @@ Internet connectivity is required to install Docker. The latest version of the D
 > curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 > echo ‘deb [arch=amd64] https://download.docker.com/linux/debian buster stable’ | sudo tee /etc/apt/sources.list.d/docker.list
 ```
-**After this command you will need to edit /etc/apt/sources.list.d/docker.list and remove the ' characters from the beginning and ending or the line inserted.**
+**After this command you will need to edit /etc/apt/sources.list.d/docker.list and remove the ' characters from the beginning and ending of the line inserted.**
 ```sh
 > sudo apt-get update
 > sudo apt-get install docker-ce
