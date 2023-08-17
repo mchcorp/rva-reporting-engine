@@ -210,6 +210,13 @@ Copy the zip archive of the Reporting Engine source code to the host machine and
 
 #### Install (Using Internet Connection)
 
+**Before you build and deploy the container images you need to generate /etc/nginx/ssl/selsigned.crt and /etc/nginx/ssl/selfsigned.key using the command:**
+```sh
+mkdir ssl
+cd ssl
+openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out selfsigned.crt -keyout selfsigned.key
+```
+
 To run in production mode with TLS and without a proxy use the command:
 
 ```sh
