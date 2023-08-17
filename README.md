@@ -87,11 +87,18 @@ Internet connectivity is required to install Docker. The latest version of the D
 
 **Debian Instructions**
 
+**Recommend using Debian 10.13 - Using Full 3 Image set of ISO's.  You will need dependencies on all 3 disks.**
+
+** You will need to edit your sources and add [trusted=yes] after the deb keyword for the installation media you use during install (all 3 ISO disks).**
+
 ```sh
 > sudo apt-get update
 > sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 > curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 > echo ‘deb [arch=amd64] https://download.docker.com/linux/debian buster stable’ | sudo tee /etc/apt/sources.list.d/docker.list
+```
+**After this command you will need to edit /etc/apt/sources.list.d/docker.list and remove the ' characters from the beginning and ending or the line inserted.**
+```sh
 > sudo apt-get update
 > sudo apt-get install docker-ce
 > docker --version
@@ -169,6 +176,7 @@ Internet connectivity is required to install Python.
 > sudo make altinstall
 > python3 --version
 ```
+**After this you will need to use update-alternatives for python3 to make this new version of Python3 the version in use on the machine.**
 
 <a name='getting-started'></a>
 
@@ -183,9 +191,13 @@ A python3 script ptp.py is included.
 #### Requirements
 
 -   python3.8
--   Docker Desktop 4.5.0 , Engine Version: 20.10.12
+-   Docker Desktop 4.5.0 , Engine Version: 20.10.12 **See instructions here for Debian: https://docs.docker.com/desktop/install/debian/.**
 -   Docker Compose v2.3.3
 -   Zip
+
+```sh
+apt-get install zip
+```
 
 Docker and docker-compose must be installed on the host system. Additionally, Zip must be installed in order to use the CLI backup utility.
 
