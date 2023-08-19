@@ -87,9 +87,10 @@ Internet connectivity is required to install Docker. The latest version of the D
 
 **Debian Instructions**
 
+**VMware vSphere:  Build VM with 3 DVD drive devices pointing to each of the following images:**
 **Recommend using Debian 10.13 - Using Full 3 Image set of ISO's.  You will need dependencies on all 3 ISO images.**
-
-** You will need to edit your sources and add [trusted=yes] after the deb keyword for the installation media you use during install (all 3 ISO images).**
+**Don't forget to add your user account to the sudoers list ( as root: usermod -aG sudo <your user account name. )**
+**You will need to edit your sources (/etc/apt/sources.list) and add [trusted=yes] after the deb keyword for the installation media you use during installation (all 3 ISO images).**
 
 ```sh
 > sudo apt-get update
