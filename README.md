@@ -178,6 +178,7 @@ Internet connectivity is required to install Python.
 > python3 --version
 ```
 **After this you will need to use update-alternatives for python3 to make this new version of Python3 the version in use on the machine.**
+**You may need to run 'sudo update fix-broken install' as well and then rerun some of these commands**
 
 <a name='getting-started'></a>
 
