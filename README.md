@@ -178,6 +178,7 @@ Internet connectivity is required to install Python.
 > python3 --version
 ```
 **After this you will need to use update-alternatives for python3 to make this new version of Python3 the version in use on the machine.**
+**Typically 'sudo update-alternatives --install /usr/bin/python3 python3 /home/mhamilton/Python-3.8.2/python 1'**
 **You may need to run 'sudo update fix-broken install' as well and then rerun some of these commands**
 
 <a name='getting-started'></a>
