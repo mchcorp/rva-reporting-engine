@@ -131,11 +131,11 @@ DM22-1011
 			<div class="grid grid-cols-6 gap-2 mb-8">
 				<div class="col-span-3">
 					<h4><b>{{ form.team_lead_name.label_tag }}</b></h4>
-					<sds-input v-model="formData.team_lead_name" placeholder="Jane Doe"></sds-input>
+					<sds-input v-model="formData.team_lead_name" placeholder="Mike Hamilton"></sds-input>
 				</div>
 				<div class="col-span-3">
 					<h4><b>{{ form.team_lead_email.label_tag }}</b></h4>
-					<sds-input v-model="formData.team_lead_email" placeholder="Jane.Doe@cisa.dhs.gov" type="email"></sds-input>
+					<sds-input v-model="formData.team_lead_email" placeholder="mhamilton@mchcorp.com" type="email"></sds-input>
 				</div>
 				<!--<div class="col-span-full">
 					<h4><b>{{ form.business_goal.label_tag }}</b></h4>
@@ -180,7 +180,7 @@ DM22-1011
 					<span class="text-sm text-gray-600">
 						{{form.phishing_domains.help_text}}
 					</span>
-					<sds-textarea v-model="formData.phishing_domains" placeholder="dhs.gov, cisa.gov"></sds-textarea>
+					<sds-textarea v-model="formData.phishing_domains" placeholder="mchcorp.com"></sds-textarea>
 				</div>
 			</div>
 
