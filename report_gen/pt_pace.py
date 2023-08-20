@@ -227,12 +227,12 @@ def generate_pace_document(output, json, assets):
     doc_title = Paragraph('<font size="16" color="#035288">POST-ASSESSMENT CLOSURE EVALUATION</font>', title_style)
 
     purpose = Paragraph('<font size="14" color="#5A5B5C">Purpose</font>', header_style)
-    purpose_description = Paragraph('<font size="10" color="#5A5B5C">As a follow up to the CISA assessment performed for '+stakeholder_name+' approximately ninety (90) days ago, the CISA Assessments team is requesting feedback regarding the status of mitigation and remediation efforts. These responses will help the CISA Assessments team measure and validate the effectiveness of the recommendations and mitigations supplied within the assessment report. Additionally, the responses will help identify opportunities for enhancing CISA products and services.</font>', body_style)
+    purpose_description = Paragraph('<font size="10" color="#5A5B5C">As a follow up to the MCH assessment performed for '+stakeholder_name+' approximately ninety (90) days ago, the CISA Assessments team is requesting feedback regarding the status of mitigation and remediation efforts. These responses will help the CISA Assessments team measure and validate the effectiveness of the recommendations and mitigations supplied within the assessment report. Additionally, the responses will help identify opportunities for enhancing CISA products and services.</font>', body_style)
 
     instructions = Paragraph('<font size="14" color="#5A5B5C">Instructions</font>', header_style)
-    instructions_1 = Paragraph('<font size="10" color="#5A5B5C">1.  The Assessment Information section should be completed by a CISA representative, then reviewed and validated by '+stakeholder_name+'.</font>', body_style)
-    instructions_2 = Paragraph('<font size="10" color="#5A5B5C">2.  The Mitigated Findings section should be completed by a CISA representative in coordination with a representative from '+stakeholder_name+' by selecting the most accurate mitigation status, action, and/or challenge preventing full remediation for each finding.</font>', body_style)
-    instructions_3 = Paragraph('<font size="10" color="#5A5B5C">3.  The Risk Score section provides the Total and Mitigated Risk Scores that were calculated during the assessment timeframe. The 90-Day Mitigated Risk Score will be determined by a CISA representative based on the responses received within the Mitigated Findings section</font>', body_style)
+    instructions_1 = Paragraph('<font size="10" color="#5A5B5C">1.  The Assessment Information section should be completed by an MCH representative, then reviewed and validated by '+stakeholder_name+'.</font>', body_style)
+    instructions_2 = Paragraph('<font size="10" color="#5A5B5C">2.  The Mitigated Findings section should be completed by an MCH representative in coordination with a representative from '+stakeholder_name+' by selecting the most accurate mitigation status, action, and/or challenge preventing full remediation for each finding.</font>', body_style)
+    instructions_3 = Paragraph('<font size="10" color="#5A5B5C">3.  The Risk Score section provides the Total and Mitigated Risk Scores that were calculated during the assessment timeframe. The 90-Day Mitigated Risk Score will be determined by an MCH representative based on the responses received within the Mitigated Findings section</font>', body_style)
 
     information = Paragraph('<font size="14" color="#5A5B5C">Assessment Information</font>', header_style)
 
@@ -336,7 +336,7 @@ def generate_pace_document(output, json, assets):
     challenges_other_field = TextField(name='mitigation_challenges_other', value='', tooltip='Mitigation Challenges Context', height=54, width=500, fontSize=10, maxlen=1000, fieldFlags='multiline')
 
     risk_section = Paragraph('<font size="16" color="#035288">RISK SCORE</font>', title_style)
-    risk_description = Paragraph('<font size="10" color="#5A5B5C">From the findings, a Total Risk Score was calculated to measure progress as findings are mitigated. If a finding was mitigated during the assessment timeframe and the CISA team was able to validate mitigation, the Mitigated Risk Score represents the deduction of those mitigated findings. Based on the responses to this questionnaire, an updated 90-Day Risk Score will be calculated.</font>', body_style)
+    risk_description = Paragraph('<font size="10" color="#5A5B5C">From the findings, a Total Risk Score was calculated to measure progress as findings are mitigated. If a finding was mitigated during the assessment timeframe and the MCH team was able to validate mitigation, the Mitigated Risk Score represents the deduction of those mitigated findings. Based on the responses to this questionnaire, an updated 90-Day Risk Score will be calculated.</font>', body_style)
     risk_data = [['Total Risk Score', 'Mitigated Risk Score', '90-Day Risk Score'],
                 [str(total_risk_score), str(mitigated_risk_score), TextField(name='risk_score', value='', tooltip='90-Day Risk Score', height=50, width=90, fontSize=36)]]
 
@@ -359,7 +359,7 @@ def generate_pace_document(output, json, assets):
                                     ('TEXTCOLOR', (0, 0), (2, 0), colors.white),
                                     ('TEXTCOLOR', (0, 1), (2, 1), gray)]))
 
-    risk_end = Paragraph('<font size="10" color="#5A5B5C">CISA identified '+num.number_to_words(severity_count['Critical'])+' ('+str(severity_count['Critical'])+') critical findings, '+num.number_to_words(severity_count['High'])+' ('+str(severity_count['High'])+') high findings, '+num.number_to_words(severity_count['Medium'])+' ('+str(severity_count['Medium'])+') medium findings, '+num.number_to_words(severity_count['Low'])+' ('+str(severity_count['Low'])+') low findings, '+num.number_to_words(severity_count['Informational'])+' ('+str(severity_count['Informational'])+') informational findings. The Total Risk Score for this assessment is '+str(total_risk_score)+' and the Mitigated Risk Score after deducting mitigated findings is '+str(mitigated_risk_score)+'. The 90-Day Risk Score will be calculated once this evaluation is completed.</font>', body_style)
+    risk_end = Paragraph('<font size="10" color="#5A5B5C">MCH identified '+num.number_to_words(severity_count['Critical'])+' ('+str(severity_count['Critical'])+') critical findings, '+num.number_to_words(severity_count['High'])+' ('+str(severity_count['High'])+') high findings, '+num.number_to_words(severity_count['Medium'])+' ('+str(severity_count['Medium'])+') medium findings, '+num.number_to_words(severity_count['Low'])+' ('+str(severity_count['Low'])+') low findings, '+num.number_to_words(severity_count['Informational'])+' ('+str(severity_count['Informational'])+') informational findings. The Total Risk Score for this assessment is '+str(total_risk_score)+' and the Mitigated Risk Score after deducting mitigated findings is '+str(mitigated_risk_score)+'. The 90-Day Risk Score will be calculated once this evaluation is completed.</font>', body_style)
 
     # intro page
     page.append(doc_title)
@@ -448,3 +448,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
