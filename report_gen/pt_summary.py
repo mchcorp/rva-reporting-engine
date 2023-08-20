@@ -174,7 +174,7 @@ def insert_report_summary(doc, db, media_path):
 
     p_tag = xu.find_paragraph(doc, "{CISA Findings Summary}")
     if p_tag is not None:
-        p_tag.text = f"CISA identified {counts['Critical']} critical-severity finding(s), {counts['High']} high-severity finding(s), {counts['Medium']} medium-severity finding(s), {counts['Low']} low-severity finding(s), and {counts['Informational']} informational-severity finding(s)."
+        p_tag.text = f"MCH identified {counts['Critical']} critical-severity finding(s), {counts['High']} high-severity finding(s), {counts['Medium']} medium-severity finding(s), {counts['Low']} low-severity finding(s), and {counts['Informational']} informational-severity finding(s)."
 
     # Inserts all of the risk assessment section.
     insert_risk_assessment(doc, db, media_path)
