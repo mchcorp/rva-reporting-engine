@@ -1,4 +1,4 @@
-﻿Acronym,Definition
+Acronym,Definition
 ADCS,Active Directory Certificate Services
 AES,Advanced Encryption Standard
 ARP,Address Resolution Protocol
@@ -47,6 +47,7 @@ LLMNR,Link-Local Multicast Name Resolution
 LSA,Local Security Authority
 LSASS,Local Security Authority Subsystem Service
 MAQ,Machine Account Quota
+MCH,MCH Corporation
 mDNS,Multicast Domain Name System
 MFA,Multi-Factor Authentication
 MitM,Machine-in-the-Middle
