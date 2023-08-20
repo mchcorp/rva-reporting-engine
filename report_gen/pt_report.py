@@ -1063,7 +1063,7 @@ def insert_report_summary(doc, db, media_path):
 
     p_tag = xu.find_paragraph(doc, "{FINDINGS SUMMARY}")
     if p_tag is not None:
-        p_tag.text = f"CISA identified {words['Critical']} ({counts['Critical']}) critical {plural['Critical']}, {words['High']} ({counts['High']}) high {plural['High']}, {words['Medium']} ({counts['Medium']}) medium {plural['Medium']}, {words['Low']} ({counts['Low']}) low {plural['Low']}, and {words['Informational']} ({counts['Informational']}) informational {plural['Informational']}. The Total Risk Score for this assessment is {total_risk_score} and the Mitigated Risk Score after deducting mitigated findings is {mitigated_risk_score}."
+        p_tag.text = f"MCH identified {words['Critical']} ({counts['Critical']}) critical {plural['Critical']}, {words['High']} ({counts['High']}) high {plural['High']}, {words['Medium']} ({counts['Medium']}) medium {plural['Medium']}, {words['Low']} ({counts['Low']}) low {plural['Low']}, and {words['Informational']} ({counts['Informational']}) informational {plural['Informational']}. The Total Risk Score for this assessment is {total_risk_score} and the Mitigated Risk Score after deducting mitigated findings is {mitigated_risk_score}."
 
     p_tag = xu.find_paragraph(doc, "{Total Score}")
     if p_tag is not None:
@@ -1149,7 +1149,7 @@ def insert_ransomware(doc, db):
         prevent = doc.add_paragraph()
         p_run1 = prevent.add_run("In addition to the recommended mitigations provided throughout the ")
         p_run2 = prevent.add_run("Findings")
-        p_run3 = prevent.add_run(" section of this report, the CISA team recommends taking the proactive actions listed in the ")
+        p_run3 = prevent.add_run(" section of this report, the MCH team recommends taking the proactive actions listed in the ")
         p_run4 = prevent.add_run("Ransomware Prevention Best Practices")
         p_run5 = prevent.add_run(" section of the ")
         xu.add_link(prevent, 5, rg_url, "CISA Ransomware Guide")
@@ -1293,7 +1293,7 @@ def insert_ransomware(doc, db):
                 total = int(af.get_db_info(db, 'ransomwarescenarios.fields.total', 'NA'))
 
             customer_name = af.get_db_info(db, 'engagementmeta.fields.customer_long_name', '{STAKEHOLDER NAME}')
-            sim = doc.add_paragraph(f"During ransomware simulation, the CISA team found that endpoints in the {customer_name} network are vulnerable to {vuln} out of the {total} ransomware scenarios tested. Details of the ransomware simulation can be found in the corresponding report provided with the scan reports and raw data.", style="Normal")
+            sim = doc.add_paragraph(f"During ransomware simulation, the MCH team found that endpoints in the {customer_name} network are vulnerable to {vuln} out of the {total} ransomware scenarios tested. Details of the ransomware simulation can be found in the corresponding report provided with the scan reports and raw data.", style="Normal")
             p_tag._p.addnext(sim._p)
 
         para = doc.add_paragraph("Ransomware is malicious software that encrypts files on infected hosts. In order to decrypt affected files, users or organizations are instructed to pay a ransom. Infection occurs via manual or automated deployment after an attacker has compromised a host. The impact of mass infection can be severe including lost revenue, lost data, diminished reputation, and various costs associated with incident response and recovery.", style="Normal")
@@ -1327,7 +1327,7 @@ def insert_de_table(doc, db):
         rec = doc.add_paragraph()
         r_run1 = rec.add_run("In addition to the recommended mitigations provided throughout the ")
         r_run2 = rec.add_run("Findings")
-        r_run3 = rec.add_run(" section pertaining to protecting sensitive data, the CISA team recommends designing and implementing network perimeter controls to detect and prevent data exfiltration. Where possible, outbound traffic should be forced through authenticated proxy servers on the enterprise perimeter. These proxy servers can be configured to decrypt and inspect network traffic, flagging suspicious or anomalous characteristics. Additionally, perimeter controls should be configured with rules that allow or block traffic based on its destination.")
+        r_run3 = rec.add_run(" section pertaining to protecting sensitive data, the MCH team recommends designing and implementing network perimeter controls to detect and prevent data exfiltration. Where possible, outbound traffic should be forced through authenticated proxy servers on the enterprise perimeter. These proxy servers can be configured to decrypt and inspect network traffic, flagging suspicious or anomalous characteristics. Additionally, perimeter controls should be configured with rules that allow or block traffic based on its destination.")
         rec.runs[1].font.bold = True
         rec.style = "Normal"
         p_tag._p.addnext(rec._p)
@@ -1416,7 +1416,7 @@ def insert_de_table(doc, db):
         space = doc.add_paragraph("", style="Normal")
         p_tag._p.addnext(space._p)
 
-        intro = doc.add_paragraph("The loss of sensitive business data often represents one of the highest risks to an enterprise. The CISA team conducted a data exfiltration simulation, in which fabricated data formatted to look like Personally Identifiable Information (PII) was transferred from an internal network to a CISA-controlled server outside of the network. The following results were observed when the CISA team attempted to exfiltrate data over common protocols:", style="Normal")
+        intro = doc.add_paragraph("The loss of sensitive business data often represents one of the highest risks to an enterprise. The MCH team conducted a data exfiltration simulation, in which fabricated data formatted to look like Personally Identifiable Information (PII) was transferred from an internal network to a CISA-controlled server outside of the network. The following results were observed when the CISA team attempted to exfiltrate data over common protocols:", style="Normal")
         p_tag._p.addnext(intro._p)
 
         header = doc.add_paragraph("Data Exfiltration", style="Heading 2")
@@ -1517,7 +1517,7 @@ def insert_pt_table(doc, db):
         space = doc.add_paragraph("", style="Normal")
         p_tag._p.addnext(space._p)
 
-        third = doc.add_paragraph("For the purpose of this testing, border protection refers to the ability to make an outbound connection from the internal network to the CISA-controlled C2 server. If this connection can be made over a particular protocol, it is assumed that all payloads utilizing the same protocol would not be blocked at the border.", style="Normal")
+        third = doc.add_paragraph("For the purpose of this testing, border protection refers to the ability to make an outbound connection from the internal network to the MCH-controlled C2 server. If this connection can be made over a particular protocol, it is assumed that all payloads utilizing the same protocol would not be blocked at the border.", style="Normal")
         p_tag._p.addnext(third._p)
 
         second = doc.add_paragraph("While it is good to have strong filters and configurations in place to protect users from phishing attacks, it is important to note that a determined adversary could likely circumvent mail and browser filters if an established, trusted domain is used. For this reason, all recommendations outlined in this report are important considerations for defense-in-depth.", style="Normal")
