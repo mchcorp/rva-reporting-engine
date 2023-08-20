@@ -128,7 +128,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='6.)',
-        help_text='Was the voter registration web site(s) tested by the CISA team?',
+        help_text='Was the voter registration web site(s) tested by the MCH team?',
     )
 
     q7 = models.CharField(
@@ -137,7 +137,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='7.)',
-        help_text='Was the voter registration database(s) tested by the CISA team?',
+        help_text='Was the voter registration database(s) tested by the MCH team?',
     )
 
     q8 = models.CharField(
@@ -146,7 +146,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='8.)',
-        help_text='Was the poll book application(s)/device(s) tested by the CISA team?',
+        help_text='Was the poll book application(s)/device(s) tested by the MCH team?',
     )
 
     q9 = models.CharField(
@@ -155,7 +155,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='9.)',
-        help_text='Was the vote tabulation equipment tested by the CISA team?',
+        help_text='Was the vote tabulation equipment tested by the MCH team?',
     )
 
     q9A = models.TextField(
@@ -170,7 +170,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='10.)',
-        help_text='Was the election results publishing system(s) tested by the CISA team?',
+        help_text='Was the election results publishing system(s) tested by the MCH team?',
     )
 
     q11 = models.CharField(
@@ -233,7 +233,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='17.)',
-        help_text='During testing, was the CISA team able to obtain Domain Admin or higher privileges?',
+        help_text='During testing, was the MCH team able to obtain Domain Admin or higher privileges?',
     )
 
     q18 = models.CharField(
@@ -242,7 +242,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='18.)',
-        help_text='During testing, was the CISA team able to access voter registration information?',
+        help_text='During testing, was the MCH team able to access voter registration information?',
     )
 
     q19 = models.CharField(
@@ -251,7 +251,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='19.)',
-        help_text='During testing, was the CISA team able to modify voter registration information?',
+        help_text='During testing, was the MCH team able to modify voter registration information?',
     )
 
     q20 = models.CharField(
@@ -260,7 +260,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='20.)',
-        help_text='During testing, was the CISA team able to access tabulation information?',
+        help_text='During testing, was the MCH team able to access tabulation information?',
     )
 
     q21 = models.CharField(
@@ -269,7 +269,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='21.)',
-        help_text='During testing, was the CISA team able to modify tabulation information?',
+        help_text='During testing, was the MCH team able to modify tabulation information?',
     )
 
     q22 = models.CharField(
@@ -287,7 +287,7 @@ class ElectionInfrastructureQuestionnaire(abstract_models.TimeStampedModel):
         default='TBD',
         blank=True,
         verbose_name='23.)',
-        help_text='During testing, was the CISA team able to modify election results information?',
+        help_text='During testing, was the MCH team able to modify election results information?',
     )
 
     q24 = models.CharField(
