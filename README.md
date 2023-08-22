@@ -96,6 +96,10 @@ Internet connectivity is required to install Docker. The latest version of the D
 ```sh
 sudo apt-get install open-vm-tools-desktop -y
 ```
+```sh
+sudo reboot
+```
+
 **Continue**
 
 ```sh
