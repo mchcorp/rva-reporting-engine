@@ -170,12 +170,15 @@ Docker Compose must be installed to run PTP. Docker Compose comes installed by d
 
 ###### Install Docker Desktop 
 
-Visit https://docs.docker.com/desktop/install/debian/ or https://docs.docker.com/desktop/install/ubuntu/ in Firefox and download .deb file
-   ```bash
-   sudo chmod 777 ./Downloads/docker-desktop-4.22.0-amd64.deb
+Visit https://docs.docker.com/desktop/install/debian/ or https://docs.docker.com/desktop/install/ubuntu/ in Firefox and download .deb file or fetch it via curl using a command like:
+   ```sh
+      curl -L --output "docker-desktop-4.22.0-amd64.deb" https://desktop.docker.com/linux/main/amd64/docker-desktop-4.22.0-amd64.deb
    ```
    ```bash
-   sudo apt-get install ./Downloads/docker-desktop-4.22.0-amd64.deb
+   sudo chmod 777 docker-desktop-4.22.0-amd64.deb
+   ```
+   ```bash
+   sudo apt-get install docker-desktop-4.22.0-amd64.deb
    ```
    ```bash
    sudo apt --fix-broken install
