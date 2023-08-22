@@ -104,12 +104,19 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 ```sh
 echo ‘deb [trusted=yes arch=amd64] https://download.docker.com/linux/debian buster stable’ | sudo tee /etc/apt/sources.list.d/docker.list
 ```
-**After this command you will need to edit /etc/apt/sources.list.d/docker.list and remove the ' characters from the beginning and ending of the line inserted.**
+**After this command you may have to edit /etc/apt/sources.list.d/docker.list and remove the ' characters from the beginning and ending of the line inserted.**
 ```sh
 sudo apt-get update
 ```
+**For Ubuntu:**
+```sh
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8
+```
 ```sh
 sudo apt-get install docker-ce
+```
+```sh
+sudo apt-get update
 ```
 ```sh
 docker --version
@@ -126,12 +133,15 @@ Docker Compose must be installed to run PTP. Docker Compose comes installed by d
 1. Once Docker Engine is successfully installed, run the following command to update the `apt` package index, and install the latest version of Docker Compose:
 
     ```bash
-     sudo apt-get update
+    sudo apt-get update
     ```
     ```bash
-     sudo apt-get install docker-compose-plugin
+    sudo apt-get install docker-compose-plugin
     ```
-
+    ```bash
+    sudo apt-get update
+    ```
+    
 2. To install a specific version of Docker Engine, run the following commands to list the versions available in your repository, then select and install:
     ```bash
     apt-cache madison docker-compose-plugin
@@ -147,6 +157,28 @@ Docker Compose must be installed to run PTP. Docker Compose comes installed by d
     ```bash
     Docker Compose version v2.3.3
     ```
+
+###### Install Docker Desktop 
+
+Visit https://docs.docker.com/desktop/install/debian/ or https://docs.docker.com/desktop/install/ubuntu/ in Firefox and download .deb file
+   ```bash
+   sudo chmod 777 /Downloads/docker-desktop-4.22.0-amd64.deb
+   ```
+   ```bash
+   sudo apt-get install ./Downloads/docker-desktop-4.22.0-amd64.deb
+   ```
+   ```bash
+   sudo apt --fix-broken install
+   ```
+   ```bash
+   sudo apt-get update
+   ```
+###### Install Zip 
+
+   ```bash
+   sudo apt-get install zip
+   ```
+
 
 ###### Install the binary manually
 
