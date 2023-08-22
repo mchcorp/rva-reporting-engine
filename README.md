@@ -102,7 +102,7 @@ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwa
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 ```
 ```sh
-echo ‘deb [arch=amd64] https://download.docker.com/linux/debian buster stable’ | sudo tee /etc/apt/sources.list.d/docker.list
+echo ‘deb [trusted=yes arch=amd64] https://download.docker.com/linux/debian buster stable’ | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 **After this command you will need to edit /etc/apt/sources.list.d/docker.list and remove the ' characters from the beginning and ending of the line inserted.**
 ```sh
