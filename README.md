@@ -93,16 +93,26 @@ Internet connectivity is required to install Docker. The latest version of the D
 **You will need to edit your sources (/etc/apt/sources.list) and add [trusted=yes] after the deb keyword for the installation media you use during installation (all 3 ISO images).**
 
 ```sh
-> sudo apt-get update
-> sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-> curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-> echo ‘deb [arch=amd64] https://download.docker.com/linux/debian buster stable’ | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+```
+```sh
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+```
+```sh
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+```
+```sh
+echo ‘deb [arch=amd64] https://download.docker.com/linux/debian buster stable’ | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 **After this command you will need to edit /etc/apt/sources.list.d/docker.list and remove the ' characters from the beginning and ending of the line inserted.**
 ```sh
-> sudo apt-get update
-> sudo apt-get install docker-ce
-> docker --version
+sudo apt-get update
+```
+```sh
+sudo apt-get install docker-ce
+```
+```sh
+docker --version
 ```
 
 ### Installing Docker Compose
@@ -116,19 +126,25 @@ Docker Compose must be installed to run PTP. Docker Compose comes installed by d
 1. Once Docker Engine is successfully installed, run the following command to update the `apt` package index, and install the latest version of Docker Compose:
 
     ```bash
-     > sudo apt-get update
-     > sudo apt-get install docker-compose-plugin
+     sudo apt-get update
+    ```
+    ```bash
+     sudo apt-get install docker-compose-plugin
     ```
 
 2. To install a specific version of Docker Engine, run the following commands to list the versions available in your repository, then select and install:
     ```bash
-     > apt-cache madison docker-compose-plugin
+    apt-cache madison docker-compose-plugin
      docker-compose-plugin | 2.3.3~ubuntu-focal | https://download.docker.com/linux/ubuntu focal/stable arm64 Packages
-     > sudo apt-get install docker-compose-plugin=<VERSION_STRING>
+    ```
+    ```bash
+    sudo apt-get install docker-compose-plugin=<VERSION_STRING>
     ```
 3. Test that the installation of Docker Compose was sucessful.
     ```bash
-    > docker compose version
+    docker compose version
+    ```
+    ```bash
     Docker Compose version v2.3.3
     ```
 
@@ -138,7 +154,11 @@ Docker Compose must be installed to run PTP. Docker Compose comes installed by d
 
     ```bash
     DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+    ```
+    ```bash
     mkdir -p $DOCKER_CONFIG/cli-plugins
+    ```
+    ```bash
     curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
     ```
 
@@ -151,7 +171,9 @@ Docker Compose must be installed to run PTP. Docker Compose comes installed by d
 3. Test that installation was successful.
 
     ```bash
-    > docker compose version
+    docker compose version
+    ```
+    ```bash
     Docker Compose version v2.2.3
     ```
 
@@ -168,14 +190,28 @@ Internet connectivity is required to install Python.
 **Debian Instructions**
 
 ```sh
-> sudo apt update
-> sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
-> curl -O https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
-> tar -xf Python-3.8.2.tar.xz
-> cd Python-3.8.2
-> ./configure --enable-optimizations
-> sudo make altinstall
-> python3 --version
+sudo apt update
+```
+```sh
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
+```
+```sh
+curl -O https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
+```
+```sh
+tar -xf Python-3.8.2.tar.xz
+```
+```sh
+cd Python-3.8.2
+```
+```sh
+./configure --enable-optimizations
+```
+```sh
+sudo make altinstall
+```
+```sh
+python3 --version
 ```
 **After this you will need to use update-alternatives for python3 to make this new version of Python3 the version in use on the machine.**
 **Typically 'sudo update-alternatives --install /usr/bin/python3 python3 /home/mhamilton/Python-3.8.2/python 1'**
@@ -207,8 +243,10 @@ Docker and docker-compose must be installed on the host system. Additionally, Zi
 Copy the zip archive of the Reporting Engine source code to the host machine and unzip it. Then apply executable permissions to ptp.py and wait-for-it.sh.
 
 ```sh
-> chmod +x ptp.py
-> chmod +x docker/dev/wait-for-it.sh
+chmod +x ptp.py
+```
+```sh
+chmod +x docker/dev/wait-for-it.sh
 ```
 
 #### Install (Using Internet Connection)
@@ -216,20 +254,24 @@ Copy the zip archive of the Reporting Engine source code to the host machine and
 **Before you build and deploy the container images you need to generate ./docker/prod/nginx/ssl/selsigned.crt and ./docker/prod/nginx/ssl/selfsigned.key using the command:**
 ```sh
 mkdir ssl
+```
+```sh
 cd ssl
+```
+```sh
 openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out selfsigned.crt -keyout selfsigned.key
 ```
 
 To run in production mode with TLS and without a proxy use the command:
 
 ```sh
-> sudo python3 ptp.py run -r [RVA/RPT/HVA]
+sudo python3 ptp.py run -r [RVA/RPT/HVA]
 ```
 
 To run in production mode with a proxy, make sure to specify a proxy configuration file as a parameter:
 
 ```sh
-> python3 ptp.py run -r [RVA/RPT/HVA] -p proxy.txt
+python3 ptp.py run -r [RVA/RPT/HVA] -p proxy.txt
 ```
 
 Note: The default assessment type of the application is set to **RVA**.
@@ -237,7 +279,7 @@ Note: The default assessment type of the application is set to **RVA**.
 During set up, you will automatically be prompted to create a superuser. Once the application is running, users on networked machines can create their accounts with the sign up button on the login screen. If you need to create additional superusers in the future, use the following command:
 
 ```sh
-> python3 ptp.py su
+python3 ptp.py su
 ```
 
 #### Install (Without Internet Connection)
@@ -251,7 +293,7 @@ specify the type of assessment (RVA, RPT, or HVA) and the directory that
 contains your web, db, and nginx .tar files:
 
 ```sh
-> ptp.py restore [-h] -b BACKUP -r [RVA/RPT/HVA]
+ptp.py restore [-h] -b BACKUP -r [RVA/RPT/HVA]
 ```
 
 ###### Restoring From Saved Docker Images (Week 1)
@@ -260,18 +302,38 @@ To set up an instance of pen test portal from the retrieved docker images, run t
 
 ```sh
 # Save docker images as tar files, and transfer to an external directory
-> docker save -o prod_web.tar:latest prod_web
-> docker save -o prod_db.tar:latest prod_db
-> docker save -o prod_nginx.tar:latest prod_nginx
+```
+```sh
+docker save -o prod_web.tar:latest prod_web
+```
+```sh
+docker save -o prod_db.tar:latest prod_db
+```
+```sh
+docker save -o prod_nginx.tar:latest prod_nginx
+```
+```sh
 # Generate backup file of assessment data from CLI or Tools Page, transfer to external directory
 # Stop and remove app containers
-> ./ptp.py remove
+```
+```sh
+./ptp.py remove
+```
+```sh
 # Transfer backup files and docker image tar files to target system and load and restore
-> docker load --input prod_web.tar:latest
-> docker load --input prod_db.tar:latest
-> docker load --input prod_nginx.tar:latest
+```
+```sh
+docker load --input prod_web.tar:latest
+```
+```sh
+docker load --input prod_db.tar:latest
+```
+```sh
+docker load --input prod_nginx.tar:latest
+```
+```sh
 # Restore application from backup zip
-> ./ptp.py restore [-h] -b BACKUP -r [RVA/RPT/HVA]
+./ptp.py restore [-h] -b BACKUP -r [RVA/RPT/HVA]
 ```
 
 After running ptp.py resume, navigate to the application in your browser and login with your existing user credentials to access saved application data.
@@ -319,13 +381,13 @@ Developer installation can be done via the ptp script or by manual installation.
 <a name='automated-set-up-with-ptp-script'></a>1. **Automated Setup**
 
 ```shell
-> ./ptp.py dev -r [RVA/RPT/HVA]
+./ptp.py dev -r [RVA/RPT/HVA]
 ```
 
 If you want to build without a proxy use the following command:
 
 ```shell
-> ./ptp.py dev -p False
+./ptp.py dev -p False
 ```
 
 Note: The default assessment type of the application is set to **RVA** `./ptp.py dev`.
@@ -335,22 +397,28 @@ Note: The default assessment type of the application is set to **RVA** `./ptp.py
 To build and run the docker containers use the command:
 
 ```sh
-> docker-compose -f docker-compose.yml up -d
+docker-compose -f docker-compose.yml up -d
 ```
 
 Once the containers are created, run the following commands:
 
 ```sh
-> docker-compose run web python manage.py makemigrations
-> docker-compose run web python manage.py migrate
-> docker-compose run web python manage.py set_report_type --type [RVA/RPT/HVA]
-> docker-compose run web python manage.py dbLoader
+docker-compose run web python manage.py makemigrations
+```
+```sh
+docker-compose run web python manage.py migrate
+```
+```sh
+docker-compose run web python manage.py set_report_type --type [RVA/RPT/HVA]
+```
+```sh
+docker-compose run web python manage.py dbLoader
 ```
 
 The database is populated now with the information needed to enter findings. The final step is to create a login for yourself by running the command:
 
 ```sh
-> docker-compose run web python manage.py createsuperuser
+docker-compose run web python manage.py createsuperuser
 ```
 
 Once the application is running, users on networked machines can create their accounts with the sign up button on the login screen.
@@ -406,7 +474,7 @@ In the current version, collaborating on the report screen and saving at the sam
 If you would like to pause the docker containers to save memory and battery life when not in use, use the pause command:
 
 ```sh
-> ./ptp.py pause
+./ptp.py pause
 ```
 
 <a name='resume'></a>
@@ -423,7 +491,7 @@ The resume command of the application is useful for any of following instances:
 To resume the application, run the following command:
 
 ```sh
-> ./ptp.py resume
+./ptp.py resume
 ```
 
 <a name='backup'></a>
@@ -435,7 +503,7 @@ There are two ways to backup your data. The preferred method is to click the "Do
 To backup your assessment data via ptp.py run the command:
 
 ```sh
-> ./ptp.py backup
+./ptp.py backup
 ```
 
 You will be prompted to enter a password in order to encrypt the backup zip file.
@@ -447,7 +515,7 @@ You will be prompted to enter a password in order to encrypt the backup zip file
 If you need to access logs for troubleshooting purposes you can attach to the web container by running the command:
 
 ```sh
-> ./ptp.py logs
+./ptp.py logs
 ```
 
 <a name='shell'></a>
@@ -457,7 +525,7 @@ If you need to access logs for troubleshooting purposes you can attach to the we
 If you want to jump into a bash shell of the web container, run the command:
 
 ```sh
-> ./ptp.py shell
+./ptp.py shell
 ```
 
 <a name='tear-down'></a>
@@ -467,7 +535,7 @@ If you want to jump into a bash shell of the web container, run the command:
 After you have backed up the database with the above method, and moved the backup files from the container, you can stop the containers and remove them.
 
 ```sh
-> ./ptp.py remove
+./ptp.py remove
 ```
 
 <a name='restore'></a>
@@ -477,7 +545,7 @@ After you have backed up the database with the above method, and moved the backu
 In order to smoothly restore a PTP instance, make sure your backup zip file (i.e. PTP_Backup....zip) is in the same directory as manage.py and ptp.py. Specify the backup file path as an argument in the following command:
 
 ```sh
-> ptp.py restore [-h] -b BACKUP -r [RVA/RPT/HVA]
+ptp.py restore [-h] -b BACKUP -r [RVA/RPT/HVA]
 ```
 
 You will be prompted to enter the password that was used to encrypt the backup zip file.
@@ -493,9 +561,13 @@ You will be prompted to enter the password that was used to encrypt the backup z
 To properly save the prod_nginx, prod_db and prod_web docker images to a tar archive run the following commands:
 
 ```bash
-> docker save -o prod_web.tar:latest prod_web
-> docker save -o prod_db.tar:latest prod_db
-> docker save -o prod_nginx.tar:latest prod_nginx
+docker save -o prod_web.tar:latest prod_web
+```
+```bash
+docker save -o prod_db.tar:latest prod_db
+```
+```bash
+docker save -o prod_nginx.tar:latest prod_nginx
 ```
 
 <a name='save-image'></a>
@@ -505,11 +577,21 @@ To properly save the prod_nginx, prod_db and prod_web docker images to a tar arc
 To properly load prod_nginx, prod_db and prod_web docker images from a tar archive, run the following commands:
 
 ```bash
-> docker load --input prod_web.tar:latest
+docker load --input prod_web.tar:latest
+```
+```bash
 Loaded image: prod_web:latest
-> docker load --input prod_db.tar:latest
+```
+```bash
+docker load --input prod_db.tar:latest
+```
+```bash
 Loaded image: prod_db:latest
-> docker load --input prod_nginx.tar:latest
+```
+```bash
+docker load --input prod_nginx.tar:latest
+```
+```bash
 Loaded image: prod_nginx:latest
 ```
 
@@ -533,7 +615,10 @@ Loaded image: prod_nginx:latest
 
 You can change the IP and subnet mask to the range you desire. The size parameter is to specify the subnet mask in created networks within the base range. Don't make the base subnet mask smaller than the size parameter or else you will run into issues creating networks.
 
-3. Restart docker: `service docker restart`
+3. Restart docker: 
+```sh
+service docker restart
+```
 
 This should change the network addresses that a docker network will assign to its networks.
 
@@ -554,7 +639,7 @@ If you want the VMware Linux VM to automatically mount a VMware shared folder on
 1. Open the `/etc/fstab` file:
 
 ```sh
-> sudo nano /etc/fstab
+sudo nano /etc/fstab
 ```
 
 2. Add the following line at the end of the `/etc/fstab` file:
@@ -568,9 +653,15 @@ Note: Make sure to replace **VMwareShareName**, **MountDirectoryOnVM**, **YourUs
 3. To find **YourUserID** and **YourGroupID**, run the following commands:
 
 ```sh
-> id -u
+id -u
+```
+```sh
 1000
-> id -g
+```
+```sh
+id -g
+```
+```sh
 1000
 ```
 
@@ -578,11 +669,11 @@ Note: Make sure to replace **VMwareShareName**, **MountDirectoryOnVM**, **YourUs
 5. Reboot the Linux VM
 
 ```sh
-> sudo reboot
+sudo reboot
 ```
 
 6. Verify that the VMware shared folder was mounted successfully onto the VM
 
 ```sh
-> df -h | grep <VMwareShareName>
+df -h | grep <VMwareShareName>
 ```
