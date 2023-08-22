@@ -295,6 +295,9 @@ chmod +x docker/dev/wait-for-it.sh
 
 **Before you build and deploy the container images you need to generate ./docker/prod/nginx/ssl/selsigned.crt and ./docker/prod/nginx/ssl/selfsigned.key using the command:**
 ```sh
+cd ./docker/prod/nginx
+```
+```sh
 mkdir ssl
 ```
 ```sh
