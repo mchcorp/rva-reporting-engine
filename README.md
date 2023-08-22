@@ -92,6 +92,12 @@ Internet connectivity is required to install Docker. The latest version of the D
 **Don't forget to add your user account to the sudoers list ( as root: usermod -aG sudo <your user account name. )**
 **You will need to edit your sources (/etc/apt/sources.list) and add [trusted=yes] after the deb keyword for the installation media you use during installation (all 3 ISO images).**
 
+**VMware Tools:  (optional)**
+```sh
+sudo apt-get install open-vm-tools-desktop -y
+```
+**Continue**
+
 ```sh
 sudo apt-get update
 ```
