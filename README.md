@@ -316,6 +316,17 @@ To run in production mode with TLS and without a proxy use the command:
 sudo python3 ptp.py run -r [RVA/RPT/HVA]
 ```
 
+**IF YOU GET BUILD ERRORS ABOUT DJANGO MISSING**
+
+```sh
+sudo apt-get install pip
+```
+```sh
+sudo pip install django
+```
+
+**THEN TRY AGAIN
+
 To run in production mode with a proxy, make sure to specify a proxy configuration file as a parameter:
 
 ```sh
