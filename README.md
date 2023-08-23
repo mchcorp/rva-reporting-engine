@@ -178,7 +178,7 @@ Visit https://docs.docker.com/desktop/install/debian/ or https://docs.docker.com
    sudo chmod 777 docker-desktop-4.22.0-amd64.deb
    ```
    ```bash
-   sudo apt-get install docker-desktop-4.22.0-amd64.deb
+   sudo apt-get install ./docker-desktop-4.22.0-amd64.deb
    ```
    ```bash
    sudo apt --fix-broken install
