@@ -106,6 +106,15 @@ echo Y|sudo apt-get install docker-ce
 sudo apt-get update
 ```
 ```sh
+git clone https://github.com/mchcorp/rva-reporting-engine
+```
+```sh
+chmod +x ptp.py
+```
+```sh
+chmod +x docker/dev/wait-for-it.sh
+```
+```sh
 cd ./docker/prod/nginx
 ```
 ```sh
