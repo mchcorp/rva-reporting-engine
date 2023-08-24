@@ -129,6 +129,9 @@ cd ..
 ```sh
 cd ..
 ```
+```sh
+sudo python3 ptp.py run -r RPT
+```
 
 **Debian Instructions**
 
