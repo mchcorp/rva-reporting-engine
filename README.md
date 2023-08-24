@@ -85,6 +85,51 @@ Docker Engine must be installed to run PTP. The latest version of the Docker Eng
 
 Internet connectivity is required to install Docker. The latest version of the Docker Engine is recommended or at least a version greater than v4.5.0.
 
+**Ubuntu long-term support release is 22.04 ("Jammy Jellyfish") Instructions**
+
+```sh
+sudo apt-get update
+```
+```sh
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+```
+```sh
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+```sh
+echo "deb [trusted=yes arch=amd64] https://download.docker.com/linux/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/docker.list
+```
+```sh
+echo Y|sudo apt-get install docker-ce
+```
+```sh
+sudo apt-get update
+```
+```sh
+cd ./docker/prod/nginx
+```
+```sh
+mkdir ssl
+```
+```sh
+cd ssl
+```
+```sh
+openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out selfsigned.crt -keyout selfsigned.key
+```
+```sh
+cd ..
+```
+```sh
+cd ..
+```
+```sh
+cd ..
+```
+```sh
+cd ..
+```
+
 **Debian Instructions**
 
 **VMware vSphere:  Build VM with 3 DVD drive devices pointing to each of the following images:**
@@ -130,6 +175,24 @@ sudo apt-get update
 ```
 ```sh
 docker --version
+```
+```sh
+echo Y|sudo apt-get install zip
+```
+```sh
+echo Y|sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
+```
+```sh
+git clone https://github.com/mchcorp/rva-reporting-engine
+```
+```sh
+chmod +x ptp.py
+```
+```sh
+chmod +x docker/dev/wait-for-it.sh
+```
+```sh
+sudo python3 ptp.py run -r [RVA/RPT/HVA]
 ```
 
 ### Installing Docker Compose
@@ -285,7 +348,7 @@ sudo apt-get install zip
 
 Docker and docker-compose must be installed on the host system. Additionally, Zip must be installed in order to use the CLI backup utility.
 
-Copy the zip archive of the Reporting Engine source code to the host machine and unzip it. Then apply executable permissions to ptp.py and wait-for-it.sh.
+Either use git clone or Copy the zip archive of the Reporting Engine source code to the host machine and unzip it. Then apply executable permissions to ptp.py and wait-for-it.sh.
 
 ```sh
 chmod +x ptp.py
